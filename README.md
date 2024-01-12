@@ -1,1 +1,1 @@
-# replace this
+# AWS Remote Development in a EC2 Instance

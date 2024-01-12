@@ -63,7 +63,9 @@
     "constructs": "^10.3.0"
   },
   "keywords": [
-    "cdk"
+    "aws",
+    "cdk",
+    "remote development"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",

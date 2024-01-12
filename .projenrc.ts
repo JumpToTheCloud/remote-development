@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@jttc/remote-development',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:JumpToTheCloud/remote-development.git',
+  keywords: ['aws', 'cdk', 'remote development'],
   prettier: true,
   prettierOptions: {
     settings: {
@@ -28,13 +29,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
       verbose: true,
     },
   },
+  releaseToNpm: true,
   releasableCommits: ReleasableCommits.featuresAndFixes(),
-
   releaseFailureIssue: true,
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: ['commitizen', 'cz-customizable'],
-  // packageName: undefined,  /* The "name" in package.json. */
+  packageName: '@jttc/remote-development' /* The "name" in package.json. */,
 });
 
 project.addScripts({
