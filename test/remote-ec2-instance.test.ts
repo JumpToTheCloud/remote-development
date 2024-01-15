@@ -1,8 +1,15 @@
+import fs from 'fs';
 import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { RemoteEnvironment } from '../src/remote-ec2-instance';
 
 describe('Snapshot test validations', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.resetModules();
+    jest.restoreAllMocks();
+  });
+
   const app = new App();
   const stack = new Stack(app, 'Stack', {
     env: {
@@ -11,6 +18,14 @@ describe('Snapshot test validations', () => {
     },
   });
 
+  jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+  jest
+    .spyOn(fs, 'readFileSync')
+    .mockReturnValue(
+      'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKD'
+    );
+
+  console.log('HOME:', process.env.HOME);
   new RemoteEnvironment(stack, 'RemoteEnvironment', {
     developer: 'test',
     ebsStorage: 250,

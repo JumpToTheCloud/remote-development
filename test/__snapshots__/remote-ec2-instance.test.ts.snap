@@ -76,8 +76,7 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
     "RemoteEnvironmentKeyPairImportedKeyPairBA6B5AFE": {
       "Properties": {
         "KeyName": "keypair-remote-development-test",
-        "PublicKeyMaterial": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHYSYN1lV0mgMjdg83uRuaMwuf4uvvfhi/BZUKiGCNa antonio.marquez@jumptothecloud.tech
-",
+        "PublicKeyMaterial": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKD",
       },
       "Type": "AWS::EC2::KeyPair",
     },
