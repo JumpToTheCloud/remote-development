@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test validations should match the snapshot 1`] = `
+{
+  "Outputs": {
+    "RemoteEnvironmentKeyPairOutputImportedKeyPair566A0713": {
+      "Description": "Name of the personal public key pair",
+      "Value": "keypair-remote-development-test",
+    },
+    "RemoteEnvironmentPublicIp93E7AF70": {
+      "Description": "Public Ip",
+      "Value": {
+        "Fn::GetAtt": [
+          "RemoteEnvironmentElasticIpBED6EA48",
+          "PublicIp",
+        ],
+      },
+    },
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+    "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Default": "/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id",
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+    },
+  },
+  "Resources": {
+    "RemoteEnvironmentEc2Alarm903B6B96": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":automate:eu-west-1:ec2:stop",
+              ],
+            ],
+          },
+        ],
+        "AlarmName": "terminate-remote-environment-instance-15-minutes-test",
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "Dimensions": [
+          {
+            "Name": "InstanceId",
+            "Value": {
+              "Ref": "RemoteEnvironmentRemoteDevelopmentInstance781276AB",
+            },
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "CPUUtilization",
+        "Namespace": "AWS/EC2",
+        "Period": 900,
+        "Statistic": "Maximum",
+        "Threshold": 2,
+        "Unit": "Percent",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RemoteEnvironmentElasticIpBED6EA48": {
+      "Properties": {
+        "InstanceId": {
+          "Ref": "RemoteEnvironmentRemoteDevelopmentInstance781276AB",
+        },
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "RemoteEnvironmentKeyPairImportedKeyPairBA6B5AFE": {
+      "Properties": {
+        "KeyName": "keypair-remote-development-test",
+        "PublicKeyMaterial": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKD",
+      },
+      "Type": "AWS::EC2::KeyPair",
+    },
+    "RemoteEnvironmentRemoteDevelopmentInstance781276AB": {
+      "DependsOn": [
+        "RemoteEnvironmentRemoteDevelopmentInstanceInstanceRole2268F6D1",
+      ],
+      "Properties": {
+        "AvailabilityZone": "dummy1a",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "VolumeSize": 250,
+            },
+          },
+        ],
+        "IamInstanceProfile": {
+          "Ref": "RemoteEnvironmentRemoteDevelopmentInstanceInstanceProfile58520179",
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter",
+        },
+        "InstanceType": "t3a.xlarge",
+        "KeyName": "keypair-remote-development-test",
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": true,
+            "DeviceIndex": "0",
+            "GroupSet": [
+              {
+                "Fn::GetAtt": [
+                  "RemoteEnvironmentSecurityGroup56BE87C1",
+                  "GroupId",
+                ],
+              },
+            ],
+            "SubnetId": "s-12345",
+          },
+        ],
+        "Tags": [
+          {
+            "Key": "name",
+            "Value": "remote-environment-test",
+          },
+          {
+            "Key": "Name",
+            "Value": "Stack/RemoteEnvironment/RemoteDevelopmentInstance",
+          },
+        ],
+        "UserData": {
+          "Fn::Base64": "#!/bin/bash",
+        },
+      },
+      "Type": "AWS::EC2::Instance",
+    },
+    "RemoteEnvironmentRemoteDevelopmentInstanceInstanceProfile58520179": {
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "RemoteEnvironmentRemoteDevelopmentInstanceInstanceRole2268F6D1",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::InstanceProfile",
+    },
+    "RemoteEnvironmentRemoteDevelopmentInstanceInstanceRole2268F6D1": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ec2.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Tags": [
+          {
+            "Key": "name",
+            "Value": "remote-environment-test",
+          },
+          {
+            "Key": "Name",
+            "Value": "Stack/RemoteEnvironment/RemoteDevelopmentInstance",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "RemoteEnvironmentSecurityGroup56BE87C1": {
+      "Properties": {
+        "GroupDescription": "Allow ssh access to ec2 instance",
+        "GroupName": "remote-environment-ec2-test",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "from 0.0.0.0/0:22",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22,
+          },
+        ],
+        "VpcId": "vpc-12345",
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

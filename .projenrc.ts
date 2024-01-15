@@ -23,7 +23,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       semi: true,
     },
   },
-  release: false,
+  release: true,
   jestOptions: {
     jestConfig: {
       verbose: true,
