@@ -289,8 +289,8 @@ export class RemoteEnvironment extends Construct {
     });
   }
 
-  public addUserDate(scriptPath: string) {
-    if (fs.existsSync(scriptPath)) {
+  public addUserData(scriptPath: string) {
+    if (!fs.existsSync(scriptPath)) {
       Annotations.of(this).addError(
         `There is not user data script in the path provider. Please, make sure there is file: ${scriptPath}`
       );
