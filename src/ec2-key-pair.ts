@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Annotations, CfnOutput, Stack } from 'aws-cdk-lib';
-import { CfnKeyPair } from 'aws-cdk-lib/aws-ec2';
+import { KeyPair } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 export interface KeypairProps {
@@ -34,7 +34,7 @@ export class RemoteEnvironmentKeyPair extends Construct {
   /**
    * The key pair created
    */
-  readonly key: CfnKeyPair;
+  readonly key: KeyPair;
 
   /**
    * @param {Construct} scope
@@ -55,15 +55,15 @@ export class RemoteEnvironmentKeyPair extends Construct {
       );
     }
 
-    this.key = new CfnKeyPair(this, 'ImportedKeyPair', {
-      keyName: props.keypairName
+    this.key = new KeyPair(this, 'ImportedKeyPair', {
+      keyPairName: props.keypairName
         ? `keypair-remote-development-${props.keypairName}`
         : `keypair-remote-development-${Stack.of(this).stackName}`,
       publicKeyMaterial: fs.readFileSync(sshKeyPath).toString(),
     });
 
     new CfnOutput(this, 'OutputImportedKeyPair', {
-      value: this.key.keyName,
+      value: this.key.keyPairName,
       description: 'Name of the personal public key pair',
     });
   }

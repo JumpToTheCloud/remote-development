@@ -1,7 +1,7 @@
 import { ReleasableCommits, awscdk } from 'projen';
 import { TrailingComma } from 'projen/lib/javascript';
 
-export const CDK_VERSION = '2.111.0';
+export const CDK_VERSION = '2.120.0';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Antonio Márquez Pérez',

@@ -25,7 +25,6 @@ describe('Snapshot test validations', () => {
       'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKD'
     );
 
-  console.log('HOME:', process.env.HOME);
   new RemoteEnvironment(stack, 'RemoteEnvironment', {
     developer: 'test',
     ebsStorage: 250,

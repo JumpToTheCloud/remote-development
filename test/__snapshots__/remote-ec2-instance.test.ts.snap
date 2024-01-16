@@ -5,7 +5,9 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
   "Outputs": {
     "RemoteEnvironmentKeyPairOutputImportedKeyPair566A0713": {
       "Description": "Name of the personal public key pair",
-      "Value": "keypair-remote-development-test",
+      "Value": {
+        "Ref": "RemoteEnvironmentKeyPairImportedKeyPair0CBCD44B",
+      },
     },
     "RemoteEnvironmentPublicIp93E7AF70": {
       "Description": "Public Ip",
@@ -73,9 +75,11 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
       },
       "Type": "AWS::EC2::EIP",
     },
-    "RemoteEnvironmentKeyPairImportedKeyPairBA6B5AFE": {
+    "RemoteEnvironmentKeyPairImportedKeyPair0CBCD44B": {
       "Properties": {
+        "KeyFormat": "pem",
         "KeyName": "keypair-remote-development-test",
+        "KeyType": "rsa",
         "PublicKeyMaterial": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKD",
       },
       "Type": "AWS::EC2::KeyPair",
@@ -101,7 +105,9 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
           "Ref": "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter",
         },
         "InstanceType": "t3a.xlarge",
-        "KeyName": "keypair-remote-development-test",
+        "KeyName": {
+          "Ref": "RemoteEnvironmentKeyPairImportedKeyPair0CBCD44B",
+        },
         "NetworkInterfaces": [
           {
             "AssociatePublicIpAddress": true,
