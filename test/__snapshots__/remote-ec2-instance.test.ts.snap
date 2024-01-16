@@ -125,12 +125,8 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
         ],
         "Tags": [
           {
-            "Key": "name",
-            "Value": "remote-environment-test",
-          },
-          {
             "Key": "Name",
-            "Value": "Stack/RemoteEnvironment/RemoteDevelopmentInstance",
+            "Value": "remote-environment-test",
           },
         ],
         "UserData": {
@@ -165,12 +161,8 @@ exports[`Snapshot test validations should match the snapshot 1`] = `
         },
         "Tags": [
           {
-            "Key": "name",
-            "Value": "remote-environment-test",
-          },
-          {
             "Key": "Name",
-            "Value": "Stack/RemoteEnvironment/RemoteDevelopmentInstance",
+            "Value": "remote-environment-test",
           },
         ],
       },

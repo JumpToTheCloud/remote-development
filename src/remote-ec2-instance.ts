@@ -255,7 +255,7 @@ export class RemoteEnvironment extends Construct {
       associatePublicIpAddress: true,
     });
 
-    Tags.of(this.instance).add('name', `remote-environment-${props.developer}`);
+    Tags.of(this.instance).add('Name', `remote-environment-${props.developer}`);
 
     const elasticIp = new CfnEIP(this, 'ElasticIp', {
       instanceId: this.instance.instanceId,
@@ -289,7 +289,7 @@ export class RemoteEnvironment extends Construct {
     });
   }
 
-  public addUserData(scriptPath: string) {
+  public addUserDat(scriptPath: string) {
     if (!fs.existsSync(scriptPath)) {
       Annotations.of(this).addError(
         `There is not user data script in the path provider. Please, make sure there is file: ${scriptPath}`
