@@ -13,7 +13,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@jttc/remote-development',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:JumpToTheCloud/remote-development.git',
-  keywords: ['aws', 'cdk', 'remote development'],
+  keywords: [
+    'aws',
+    'cdk',
+    'remote development',
+    'remote environment',
+    'cloud9',
+  ],
   prettier: true,
   prettierOptions: {
     settings: {
@@ -29,11 +35,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
       verbose: true,
     },
   },
-  releaseToNpm: true,
   releasableCommits: ReleasableCommits.featuresAndFixes(),
   releaseFailureIssue: true,
   // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  description:
+    'AWS CDK Construct deploy an EC2 Instance per developer to work in a remote environment',
   devDeps: ['commitizen', 'cz-customizable'],
   packageName: '@jttc/remote-development' /* The "name" in package.json. */,
 });

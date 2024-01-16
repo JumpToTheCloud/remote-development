@@ -1,5 +1,6 @@
 {
   "name": "@jttc/remote-development",
+  "description": "AWS CDK Construct deploy an EC2 Instance per developer to work in a remote environment",
   "repository": {
     "type": "git",
     "url": "git@github.com:JumpToTheCloud/remote-development.git"
@@ -69,7 +70,9 @@
   "keywords": [
     "aws",
     "cdk",
-    "remote development"
+    "cloud9",
+    "remote development",
+    "remote environment"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
