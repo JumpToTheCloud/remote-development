@@ -1,5 +1,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-![npm](https://img.shields.io/npm/v/%40jttc%2Fremote-environment)
+![npm](https://img.shields.io/npm/v/%40jttc%2Fremote-development)
+
+[![View on Construct Hub](https://constructs.dev/badge?package=%40jttc%2Fremote-development)](https://constructs.dev/packages/@jttc/remote-development)
 
 # AWS Remote Environment in a EC2 Instance Construct Library
 
