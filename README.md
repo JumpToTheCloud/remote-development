@@ -10,19 +10,19 @@ This AWS CDK Construct deploy an EC2 Instance per developer to work in a remote 
 ## Installation
 
 ```
-yarn add @jttc/remote-environment
+yarn add @jttc/remote-development
 ```
 
 ```
-npm install @jttc/remote-environment
+npm install @jttc/remote-development
 ```
 
 ## How to use
 
 ```typescript
-import { RemoteEnvironment } from '@jttc/remote-environment';
+import { RemoteEnvironment } from '@jttc/remote-development';
 
-new RemoteEnvironment(stack, 'RemoteEnvironment', {
+new RemoteEnvironment(this, 'RemoteEnvironment', {
   developer: 'developer-id-name',
   vpcId: 'vpc-xxxxxxxxxxx',
   sshPublicKeyName: 'id_ed25519.pub',

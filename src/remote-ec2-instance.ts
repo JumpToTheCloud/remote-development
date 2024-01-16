@@ -241,7 +241,7 @@ export class RemoteEnvironment extends Construct {
       vpc: vpc,
       instanceType: new InstanceType(instanceType),
       machineImage,
-      keyName: keyPair.key.keyName,
+      keyPair: keyPair.key,
       securityGroup: securityGroup,
       vpcSubnets: {
         subnetType: SubnetType.PUBLIC,
