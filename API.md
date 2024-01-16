@@ -59,7 +59,7 @@ new RemoteEnvironment(scope: Construct, id: string, props: RemoteEnvironmentProp
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@jttc/remote-development.RemoteEnvironment.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@jttc/remote-development.RemoteEnvironment.addUserDate">addUserDate</a></code> | *No description.* |
+| <code><a href="#@jttc/remote-development.RemoteEnvironment.addUserData">addUserData</a></code> | *No description.* |
 
 ---
 
@@ -71,13 +71,13 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `addUserDate` <a name="addUserDate" id="@jttc/remote-development.RemoteEnvironment.addUserDate"></a>
+##### `addUserData` <a name="addUserData" id="@jttc/remote-development.RemoteEnvironment.addUserData"></a>
 
 ```typescript
-public addUserDate(scriptPath: string): void
+public addUserData(scriptPath: string): void
 ```
 
-###### `scriptPath`<sup>Required</sup> <a name="scriptPath" id="@jttc/remote-development.RemoteEnvironment.addUserDate.parameter.scriptPath"></a>
+###### `scriptPath`<sup>Required</sup> <a name="scriptPath" id="@jttc/remote-development.RemoteEnvironment.addUserData.parameter.scriptPath"></a>
 
 - *Type:* string
 
